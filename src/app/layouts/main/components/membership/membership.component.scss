@@ -1,0 +1,53 @@
+.custom-dropdown {
+	width: 100%;
+	padding: 12px 20px;
+	border-radius: 6px;
+	box-shadow: 0 5px 20px rgba(34, 34, 34, 0.1);
+	background: #ffffff;
+	font-size: 16px;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.custom-dropdown-items {
+	width: 100%;
+	padding: 12px 20px;
+	border-radius: 6px;
+	box-shadow: 0 5px 20px rgba(34, 34, 34, 0.1);
+	background: #ffffff50;
+	border: 1px solid #00000030;
+	font-size: 16px;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.custom-dropdown-items:hover {
+	background: #ffffff;
+}
+
+.top-menu {
+	margin-top: 1rem;
+}
+
+.slideBtn .clickable {
+	span {
+		position: absolute;
+	}
+}
+
+.checkbox-nabii-container {
+	display: flex;
+
+	a {
+		cursor: pointer;
+	}
+}
+
+.checkbox-nabii {
+	width: 20px !important;
+	height: 20px !important;
+	margin-right: 1rem;
+	margin-bottom: 0 !important;
+}

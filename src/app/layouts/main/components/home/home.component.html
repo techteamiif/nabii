@@ -1,0 +1,245 @@
+<section
+  class="banner"
+  [ngStyle]="{
+    position: 'relative',
+    width: '100%',
+    'min-height': '100vh',
+    display: 'flex',
+    transition: '0.5s',
+    'animation-name': 'FadeIn',
+    'animation-duration': '3s',
+    'transition-timing-function': 'linear',
+    'align-items': 'center',
+    'background-image': bgImage,
+    'background-size': 'cover',
+    'background-position': 'center'
+  }">
+  <div class="content">
+    <div class="sect">
+      <div class="overlay">
+        <!-- <p><small [innerHtml]="slideSubtitle"></small></p> -->
+        <h1 [innerHtml]="slideTitle"></h1>
+        <p class="mb-30" [innerHtml]="desc"></p>
+      </div>
+      <a class="app-btn" [routerLink]="slideUrl">
+        Learn More <span class="line"></span>
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <li class="nav-dots">
+      <label
+        *ngFor="let item of sliders; let i = index"
+        class="nav-dot"
+        [ngClass]="{ current: counter == i + 1 }"
+        (click)="nextSlide(i)"></label>
+    </li>
+  </div>
+
+  <!-- <div class="venture-lists">
+    <p class="uppercase">In partnership with:</p>
+    <span class="in-partnership-card">
+      <img src="../../../../../assets/images/iif-logo.png" alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img src="../../../../../assets/images/ica-logo.png" alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img
+        src="https://jliflc.com/wp-content/uploads/2014/07/updated_logo32.png"
+        alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/34/Lagos_Business_School%27s_Logo.jpg"
+        alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img
+        src="https://mly7rtrxtytf.i.optimole.com/oOvf39Y-II_KXDPK/w:497/h:139/q:mauto/https://nigerianabii.org/wp-content/uploads/2021/05/Stanbic-IBTC-A-Member-of-Standard-Bank-Group.png"
+        alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img
+        src="https://mly7rtrxtytf.i.optimole.com/oOvf39Y-Cke9cl1_/w:727/h:464/q:mauto/https://nigerianabii.org/wp-content/uploads/2021/06/UUBO.png"
+        alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img
+        src="https://mly7rtrxtytf.i.optimole.com/oOvf39Y-iUwB47Ot/w:300/h:62/q:mauto/https://nigerianabii.org/wp-content/uploads/2021/05/under-22.png"
+        alt="" />
+    </span>
+    <span class="in-partnership-card">
+      <img
+        src="https://mly7rtrxtytf.i.optimole.com/oOvf39Y-mz7oJy_Q/w:auto/h:auto/q:mauto/https://nigerianabii.org/wp-content/uploads/2021/05/under1.png"
+        alt="" />
+    </span>
+  </div> -->
+</section>
+
+<section class="welcome no-padding">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="imgBx">
+        <img [src]="welcomeMessageImage" alt="" />
+      </div>
+    </div>
+    <div class="col-md-6 p-5">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">About</h3>
+        <h3 class="page-title">Impact Investments</h3>
+        <div class="inner-box">
+          <div class="desc" [innerHTML]="aboutUs.summary"></div>
+        </div>
+      </div>
+      <div class="author-info">
+        <div class="ceo-name">
+          {{ ceoName }}
+        </div>
+        <span class="designation bold"> NAB Secretariat </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="focus-areas">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of highlights">
+        <div class="show-cube">
+          <div class="pa-30">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="focus-area-icon">
+                  <img
+                    src="https://res.cloudinary.com/etechds/image/upload/v1653864548/IIF/networking_rsdcra.svg"
+                    alt="Pics" />
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="focus-area-title">
+                  <h4>{{ item.title }}</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="focus-areas-content">
+              {{ item.content }}
+            </div>
+
+            <!-- <div class="text-center">
+              <a class="show-cube-btn" [routerLink]="item.url"> Read More </a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="milestones">
+  <div class="wpb_column vc_column_container vc_col-sm-3">
+    <div class="vc_column-inner">
+      <div class="wpb_wrapper">
+        <div class="wpb_single_image wpb_content_element vc_align_center">
+          <figure class="wpb_wrapper vc_figure">
+            <div class="vc_single_image-wrapper vc_box_border_grey">
+              <img
+                src="https://impactinvestorsfoundation.org/wp-content/uploads/2020/02/6-speakers.svg"
+                class="vc_single_image-img attachment-medium"
+                alt=""
+                loading="lazy"
+                width="1"
+                height="1" />
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="welcome no-padding">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="imgBx">
+        <img [src]="ctaBg" alt="" />
+      </div>
+    </div>
+    <div class="col-md-5 p-5">
+      <h3 class="page-subtitle">Interested In</h3>
+      <h3 class="page-title">Joining Our Great Community</h3>
+
+      <div class="mt-4">
+        <p>
+          Kindly make use of the button below to access our registration portal
+          complete your registration process.
+        </p>
+      </div>
+
+      <p>&nbsp;</p>
+
+      <form class="mt-2" [formGroup]="form">
+        <div class="info">
+          <input
+            type="text"
+            placeholder="Your Name"
+            #fullName
+            formControlName="fullName"
+            required />
+          
+        </div>
+        <div class="info">
+          <input
+            type="email"
+            placeholder="Your Phone Number"
+            #phoneNumber
+            formControlName="phoneNumber"
+            required />
+        </div>
+        <div class="info">
+          <button class="ft-btn" (click)="onCtaSubmit()">
+            <span *ngIf="isSubmitting" style="color: white">
+              <i class="fa fa-spinner fa-pulse" style="color: white"></i>
+            </span>
+            <span *ngIf="!isSubmitting" style="color: white"> Submit </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="media">
+  <div class="container">
+    <main class="grid">
+      <article *ngFor="let item of blogs">
+        <img
+          [src]="item.imageUrl"
+          alt="News Image"
+          class="clickable"
+          [routerLink]="
+            '/media/news/detail/' + item.slug + '-nid-' + item.id
+          " />
+        <div class="text">
+          <span
+            class="title clickable"
+            [routerLink]="'/media/news/detail/' + item.slug + '-nid-' + item.id"
+            >{{ item.title }}</span
+          >
+          <div class="content" [innerHtml]="item.brief"></div>
+          <!-- <div class="row">
+            <div class="col-md-7">
+              <span class="news-author">{{ getUserName(item.author) }}</span><br>
+              <span class="news-date">{{ splitDate(item.created_at) }}</span>
+            </div>
+            <div class="col-md-5 float-right no-padding">
+              <a routerLink="/" class="app-media-btn">News In Detail</a>
+            </div>
+          </div> -->
+        </div>
+      </article>
+    </main>
+  </div>
+</section>

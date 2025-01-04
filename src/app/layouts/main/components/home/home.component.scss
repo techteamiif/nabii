@@ -1,0 +1,61 @@
+input {
+  font-size: 20px;
+}
+
+
+.info input[type=email]{
+ box-shadow:0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+.info {
+  display: block;
+  margin-right: 5px;
+}
+
+.info input {
+  display: block;
+  width: 100%;
+  height: 44px;
+  border: 0;
+  border-radius: 3px;
+  margin: 0 0 10px 0;
+  padding: 12px 10px;
+  background: #fff;
+}
+
+.info input:last-child {
+  margin-bottom: 10px;
+}
+
+.info input:focus {
+  background: #eee;
+  outline: none;
+}
+
+.ft-btn {
+  vertical-align: top;
+  height: 58px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: pink;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color-2),
+    var(--primary-color)
+  );
+}
+
+.ft-btn:hover {
+  background: linear-gradient(
+    180deg,
+    var(--primary-color-2),
+    var(--primary-color)
+  );
+}

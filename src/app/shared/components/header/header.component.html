@@ -1,0 +1,65 @@
+<header>
+  <div class="topbar" id="topbar">
+    <ul class="contact-box">
+      <li>
+        <a [href]="'mailto:' + emailAddress">
+          <i class="ri-message-3-fill" class="icon-color"></i>
+          {{ emailAddress }}
+        </a>
+      </li>
+      <li>
+        <a [href]="'mailto:' + phoneNumber">
+          <i class="ri-phone-fill" class="icon-color"></i>
+          {{ phoneNumber }}
+        </a>
+      </li>
+    </ul>
+    <ul class="social-box">
+      <li *ngFor="let socialMedia of socialData">
+        <a [href]="socialMedia.url" target="_blank">
+          <i [ngClass]="socialMedia.icon" class="icon-color"></i>
+        </a>
+      </li>
+      <li class="membership">
+        <a routerLink="/membership"> Membership </a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar sticky">
+    <a routerLink="/" class="logo">
+      <img [src]="logo" alt="IIF" />
+    </a>
+
+    <div class="menuToggle" onclick="toggleMenu();"></div>
+
+    <ul class="navigation">
+      <li *ngFor="let menu of menus" [ngClass]="{ dropdown: menu.hasKids }">
+        <a
+          [routerLink]="menu.url"
+          routerLinkActive="active"
+          onclick="toggleMenu();">
+          {{ menu.title }}
+          <span *ngIf="menu.hasKids">
+            <i class="fa fa-chevron-down primary-color pl-5"></i>
+          </span>
+        </a>
+        <ul *ngIf="menu.hasKids" class="dropdown-content">
+          <li *ngFor="let child of menu.children">
+            <a [routerLink]="child.url" routerLinkActive="active">{{
+              child.title
+            }}</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a
+          href="https://impactinvestorsfoundation.org/"
+          target="_blank"
+          onclick="toggleMenu();">
+          IIF
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>

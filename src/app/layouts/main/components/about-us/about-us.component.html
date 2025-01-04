@@ -1,0 +1,163 @@
+<section
+  class="breadcrumb"
+  [ngStyle]="{
+    position: 'relative',
+    width: '100%',
+    display: 'flex',
+    transition: '0.5s',
+    'margin-bottom': '0px',
+    'animation-name': 'FadeIn',
+    'animation-duration': '3s',
+    'transition-timing-function': 'linear',
+    'align-items': 'center',
+    background: 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+    'background-size': 'cover',
+    'background-position': 'center'
+  }">
+  <div class="content">
+    <div class="sect">
+      <h3>{{ title }}</h3>
+      <ul class="breadcrumb">
+        <li><a routerLink="/">Home</a></li>
+        <li>{{ title }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="welcome no-padding" style="margin: 0px">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="imgBx" style="height: 100%">
+        <img
+          src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          alt="" />
+      </div>
+    </div>
+    <div class="col-md-6 p-4" *ngIf="!fetching">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">About The</h3>
+        <h3 class="page-title">Impact Investors Foundation</h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            Impact Investing is a new and exciting way investors around the
+            globe are investing to deliver both social impact and financial
+            returns. The market in Nigeria is fast growing, yet, still at its
+            infancy. Our focus is to accelerate its growth, remove barriers and
+            build the early market infrastructure to foster social and economic
+            development and deliver prosperity for all.
+          </p>
+          <p class="desc">
+            The Nigeria National Advisory Board for Impact Investing has a three
+            tiered structure – comprising a 15-member board, a second tier
+            consisting of four working groups: The supply of capital, demand for
+            capital, Intermediaries and policy working groups and the NAB
+            Secretariat, the Impact Investors’ Foundation.
+          </p>
+        </div>
+      </div>
+
+      <div class="content mb-1">
+        <h3 class="page-subtitle">Defining the</h3>
+        <h3 class="page-title">
+          National Advisory Board for Impact Investment
+        </h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            Despite the title 'board', the NAB is not a corporate board because
+            they have no shareholders and no direct authority for management of
+            actors in the field. Unlike other advisory boards because the NAB is
+            action oriented. The advisory board has some similarities with
+            representative associations and industry bodies but show a greater
+            orientation to foresight for what will be needed next to catalyse
+            the Nigerian market.
+          </p>
+        </div>
+      </div>
+
+      <div class="content mb-1">
+        <h3 class="page-subtitle">The Role Of</h3>
+        <h3 class="page-title">
+          National Advisory Board for Impact Investment
+        </h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            The role of the NAB is to create a proactive and trusted ‘go to’
+            presence in the market that:
+          </p>
+          <ul>
+            <li>
+              Raises awareness of impact investing across a broad range of
+              constituents;
+            </li>
+            <li>
+              Identifies opportunities to drive toward critical mass of
+              activity, talent, practice exchange, supportive policy and
+              infrastructure for impact investing;
+            </li>
+            <li>
+              Creates a proactive, catalytic platform for influence and action
+              that focuses on developing the overall effectiveness and
+              performance of the field;
+            </li>
+            <li>
+              Engages with and is accountable to the collective of people and
+              organisations making up the field– investors, foundations,
+              entrepreneurs, service delivery organisations, intermediaries,
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="welcome no-padding" style="margin: 0px">
+  <div class="row">
+    <div class="col-md-6 vision" *ngIf="!fetching">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">Our</h3>
+        <h3 class="page-title">Vision Statement</h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            A dynamic ecosystem for impact investment in Nigeria that delivers
+            measurable and improved outcomes at scale for society, the
+            environment, and the economy while increasing equitable access to
+            capital.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mission" *ngIf="!fetching">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">Our</h3>
+        <h3 class="page-title">Mission Statement</h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            To catalyze and promote a dynamic ecosystem for impact investing in
+            Nigeria by
+          </p>
+          <ul>
+            <li>
+              Increasing the demand for impact capital by investment-ready MSMEs
+              and Social Organisations through capacity building programmes
+            </li>
+            <li>
+              Increasing and deepening the supply of impact capital for
+              investments in MSMEs and Social Organizations
+            </li>
+            <li>
+              Promoting impact investing regulatory and policy framework in
+              government and public offices
+            </li>
+            <li>
+              Promoting the number & effectiveness of intermediaries to
+              facilitate access to impact capital
+            </li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

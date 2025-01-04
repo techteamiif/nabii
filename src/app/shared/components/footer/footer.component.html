@@ -1,0 +1,158 @@
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-cta pt-5 pb-5">
+      <div class="row">
+        <div class="col-xl-7 col-md-7 mb-30">
+          <div class="single-cta">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="cta-text">
+              <h4>Find us</h4>
+              <span>{{ address }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-2 mb-30">
+          <div class="single-cta">
+            <i class="fas fa-phone"></i>
+            <div class="cta-text">
+              <h4>Call us</h4>
+              <a [href]="'tel:' + phoneNumber"
+                ><span>{{ phoneNumber }}</span></a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-md-3 mb-30">
+          <div class="single-cta">
+            <i class="far fa-envelope-open"></i>
+            <div class="cta-text">
+              <h4>Mail us</h4>
+              <a [href]="'mailto:' + emailAddress"
+                ><span>{{ emailAddress }}</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-content pt-5 pb-5">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 mb-50">
+          <div class="footer-widget">
+            <div class="footer-text">
+              <p>{{ intro }}</p>
+            </div>
+            <div class="footer-social-icon">
+              <span>Follow us</span>
+              <a
+                *ngFor="let item of socialData"
+                [href]="item.url"
+                target="_blank">
+                <i
+                  [class]="item.icon"
+                  [ngClass]="{
+                    facebook: item.title == 'Facebook',
+                    twitter: item.title == 'Twitter',
+                    linkedin: item.title == 'LinkedIn',
+                    instagram: item.title == 'Instagram',
+                    youtube: item.title == 'Youtube'
+                  }"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+          <div class="footer-widget">
+            <div class="footer-widget-heading">
+              <h3>Useful Links</h3>
+            </div>
+            <ul>
+              <li *ngFor="let item of menu">
+                <a [routerLink]="item.url">{{ item.title }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+          <div class="footer-widget">
+            <div class="footer-widget-heading">
+              <h3>Newsletter Subscription</h3>
+            </div>
+            <div class="footer-text mb-25">
+              <p>
+                Don't miss an opportunity to subscribe to our news feed. Kindly
+                fill the form below with your name and email address.
+              </p>
+            </div>
+            <div class="subscribe-form">
+              <form [formGroup]="form">
+                <div class="info">
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    #name
+                    formControlName="name"
+                    required />
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    #email
+                    formControlName="email"
+                    required />
+                </div>
+                <button class="ft-btn" (click)="onCtaSubmit()">
+                  <span *ngIf="isSubmitting" style="color: white">
+                    <i class="fa fa-spinner fa-pulse" style="color: white"></i>
+                  </span>
+                  <span *ngIf="!isSubmitting" style="color: white">
+                    Submit
+                  </span>
+                </button>
+              </form>
+
+              <div class="mt-2 mb-2">
+                <div
+                  class="alert"
+                  *ngIf="showAlert"
+                  [ngClass]="{
+                    'alert-success': isSuccess,
+                    'alert-error': !isSuccess
+                  }">
+                  <h4 class="alert-title">{{ msgTitle }}</h4>
+                  <p class="alert-content">{{ msg }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8 text-lg-left">
+          <div class="copyright-text">
+            <p>
+              Copyright &copy; {{ currentYear }}, All Right Reserved
+              <a routerLink="/"
+                >Nigerian National Advisory Board for Impact Investing</a
+              >
+            </p>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 d-none d-lg-block text-right">
+          <div class="footer-menu">
+            <ul>
+              <li><a routerLink="/">Home</a></li>
+              <li><a routerLink="/">Terms</a></li>
+              <li><a routerLink="/">Privacy</a></li>
+              <li><a routerLink="/">Policy</a></li>
+              <li><a routerLink="/contact-us">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,98 @@
+<section
+  class="breadcrumb"
+  [ngStyle]="{
+    position: 'relative',
+    width: '100%',
+    display: 'flex',
+    transition: '0.5s',
+    'margin-bottom': '0px',
+    'animation-name': 'FadeIn',
+    'animation-duration': '3s',
+    'transition-timing-function': 'linear',
+    'align-items': 'center',
+    background: 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+    'background-size': 'cover',
+    'background-position': 'center'
+  }">
+  <div class="content">
+    <div class="sect">
+      <h3>{{ title }}</h3>
+      <ul class="breadcrumb">
+        <li><a routerLink="/">Home</a></li>
+        <li>{{ title }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="welcome no-padding" style="margin: 0px">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="imgBx" style="height: 100%">
+        <img
+          src="https://mly7rtrxtytf.i.optimole.com/oOvf39Y-uvigfm_a/w:1024/h:684/q:mauto/https://nigerianabii.org/wp-content/uploads/2021/05/benjamin-dada-.jpg"
+          alt="" />
+      </div>
+    </div>
+    <div class="col-md-6 p-4">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">National Advisory</h3>
+        <h3 class="page-title">Board Members</h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            The Nigerian National Advisory Board for Impact Investment is the
+            leading national body established to strengthen the Impact
+            Investment market in Nigeria. Its main purpose is to build a dynamic
+            ecosystem for impact investment in Nigeria that delivers measurable
+            and improved outcomes at scale for society, the environment, and the
+            economy while increasing equitable access to capital.
+          </p>
+          <p class="desc">
+            The Nigeria NABII has a three tiered structure - comprising a
+            15-member board, a second tier consisting of four working groups:
+            The supply of capital, demand for capital, Intermediaries and policy
+            working groups and the NAB Secretariat, the Impact Investors'
+            Foundation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="team-area">
+  <div class="container" style="padding-top: 40px">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="site-heading text-center">
+              <h3 class="page-subtitle">Our</h3>
+              <h3 class="page-title">Board Members</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div
+            class="col-md-12 single-item mb-30 white-bg"
+            *ngFor="let item of team">
+            <div class="row">
+              <div class="col-md-2 no-padding">
+                <img class="img-fluid" [src]="item.imageUrl" alt="Thumb" />
+              </div>
+              <div class="col-md-10">
+                <div class="pa-30">
+                  <h4 class="page-title">
+                    {{ item.firstName }} {{ item.lastName }}
+                  </h4>
+                  <span class="page-subtitle">{{ item.jobTitle }}</span>
+                  <div class="inner pt-30" [innerHtml]="item.profile"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

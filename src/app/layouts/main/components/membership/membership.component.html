@@ -1,0 +1,496 @@
+<section
+	class="breadcrumb"
+	[ngStyle]="{
+		position: 'relative',
+		width: '100%',
+		display: 'flex',
+		transition: '0.5s',
+		'animation-name': 'FadeIn',
+		'animation-duration': '3s',
+		'transition-timing-function': 'linear',
+		'align-items': 'center',
+		background: 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+		'background-size': 'cover',
+		'background-position': 'center'
+	}"
+>
+	<div class="content">
+		<div class="sect">
+			<h3>{{ title }}</h3>
+			<ul class="breadcrumb">
+				<li><a routerLink="/">Home</a></li>
+				<li>{{ title }}</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="containerc">
+		<div class="row" style="margin: 30px 0px">
+			<div class="col-xl-4 col-lg-4 col-md-4">
+				<div class="card" style="background: white !important">
+					<div class="card-body">
+						<span class="sub-title primary-color">{{ intro }}</span>
+						<h3 class="secondary-color">{{ heading }}</h3>
+						<span>{{ msg }}</span>
+
+						<!-- <div class="pa-20">
+              <ol>
+                <li style="margin-bottom: 10px" *ngFor="let item of items">
+                  {{ item }}
+                </li>
+              </ol>
+            </div> -->
+						<!-- -->
+
+						<p class="top-menu">
+							It’s time to take action! The Nigerian National Advisory Board for
+							Impact Investing (NABII) is calling on all forward-thinking
+							organisations and individuals to come together and join hands in
+							creating an equitable access to impact capital for all Nigerians.
+						</p>
+
+						<p>
+							Become a member of the Nigerian NABII and be an active participant
+							in mobilising impact funds and driving social change for Nigeria.
+						</p>
+
+						<p>Explore our membership categories and benefits.</p>
+
+						<a [href]="brochure" target="_blank">
+							<button class="slideBtn clickable">Download Brochure</button>
+						</a>
+
+						<h4>&nbsp;</h4>
+
+						<hr />
+						<h4>&nbsp;</h4>
+
+						<span class="sub-title primary-color">{{ paymentIntro }}</span>
+						<h3 class="secondary-color">{{ paymentHeading }}</h3>
+						<span>{{ paymentMsg }}</span>
+						<h4 style="margin-top: 20px">
+							<small>Bank Name:</small><br />{{ bankName }}
+						</h4>
+						<h4>
+							<small>Account Name:</small><br />
+							{{ accountName }}
+						</h4>
+						<h4>
+							<small>Account Number:</small><br />
+							{{ accountNumber }}
+						</h4>
+						<p>
+							Email your evidence of payment to: <br />
+							<strong>{{ emailAddress }}</strong>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xl-8 col-lg-8 col-md-8 lite-grey-bg">
+				<div class="pa-20">
+					<span class="sub-title primary-color">Membership</span>
+					<h3 class="secondary-color">Registration Form</h3>
+					<span>
+						Kindly fill the form with accurate information. ALL FIELDS ARE
+						REQUIRED.
+					</span>
+
+					<div class="rs-contact inner">
+						<div class="contact-form-part">
+							<div id="form-messages"></div>
+							<form id="contact-form" [formGroup]="form">
+								<div class="row">
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="nameOfOrganization"
+											#nameOfOrganization
+											formControlName="nameOfOrganization"
+											placeholder="Name of Organization *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="cityOfHeadquarter"
+											#cityOfHeadquarter
+											formControlName="cityOfHeadquarter"
+											placeholder="City of Organization Headquarter *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="primaryContactPerson"
+											#primaryContactPerson
+											formControlName="primaryContactPerson"
+											placeholder="Primary Contact Person *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="primaryContactPersonEmail"
+											#primaryContactPersonEmail
+											formControlName="primaryContactPersonEmail"
+											placeholder="Primary Contact Person Email*"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="primaryContactPersonPhone"
+											#primaryContactPersonPhone
+											formControlName="primaryContactPersonPhone"
+											placeholder="Primary Contact Person Phone Number*"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showMultipleCountries = !showMultipleCountries"
+										>
+											<span>{{ chosenMultipleCountries }}</span>
+											<div>
+												<span *ngIf="!showMultipleCountries">&#8964; </span>
+												<span *ngIf="showMultipleCountries">&#8963; </span>
+											</div>
+										</div>
+
+										<div *ngIf="showMultipleCountries">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of countries; let i = index"
+												(click)="setChosenCountries(item.name.common, i)"
+												[ngStyle]="{
+													'background-color': isIndexInList(i)
+														? 'rgb(62, 164, 164)'
+														: '#ffffff50'
+												}"
+											>
+												{{ item.name.common }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showCountries = !showCountries"
+										>
+											<span>{{ countryOfHeadquarter }}</span>
+											<div>
+												<span *ngIf="!showCountries">&#8964; </span>
+												<span *ngIf="showCountries">&#8963; </span>
+											</div>
+										</div>
+
+										<div *ngIf="showCountries">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of countries"
+												(click)="setCountry(item.name.common)"
+											>
+												{{ item.name.common }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="contactPerson"
+											#contactPerson
+											formControlName="contactPerson"
+											placeholder="Contact Person Full Name *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="contactNumber"
+											#contactNumber
+											formControlName="contactNumber"
+											placeholder="Contact Person Phone Number *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="email"
+											#email
+											formControlName="email"
+											placeholder="Email Address *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-6 col-sm-12">
+										<input
+											type="text"
+											name="address"
+											#address
+											formControlName="address"
+											placeholder="Contact Address *"
+											required=""
+										/>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showCategory = !showCategory"
+										>
+											<span>{{ chosenCategory }}</span>
+											<div>
+												<span *ngIf="!showCategory">&#8964; </span>
+												<span *ngIf="showCategory">&#8963; </span>
+											</div>
+										</div>
+										<div *ngIf="showCategory">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of membershipCategories"
+												(click)="setChosenCategory(item)"
+											>
+												<span>
+													<p>
+														<strong>
+															{{ item }}
+														</strong>
+													</p>
+												</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showIndustry = !showIndustry"
+										>
+											<span>{{ chosenIndustry }}</span>
+											<div>
+												<span *ngIf="!showIndustry">&#8964; </span>
+												<span *ngIf="showIndustry">&#8963; </span>
+											</div>
+										</div>
+										<div *ngIf="showIndustry">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of industries"
+												(click)="setChosenIndustry(item)"
+											>
+												{{ item }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showOrganization = !showOrganization"
+										>
+											<span>{{ chosenOrganization }}</span>
+											<div>
+												<span *ngIf="!showOrganization">&#8964; </span>
+												<span *ngIf="showOrganization">&#8963; </span>
+											</div>
+										</div>
+										<div *ngIf="showOrganization">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of organizationTypes"
+												(click)="setChosenOrganization(item)"
+											>
+												{{ item }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showAreaOfInterest = !showAreaOfInterest"
+										>
+											<span>{{ chosenAreaOfInterest }}</span>
+											<div>
+												<span *ngIf="!showAreaOfInterest">&#8964; </span>
+												<span *ngIf="showAreaOfInterest">&#8963; </span>
+											</div>
+										</div>
+										<div *ngIf="showAreaOfInterest">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of interests"
+												(click)="setChosenAreaOfInterest(item)"
+											>
+												{{ item }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showExclusiveContent = !showExclusiveContent"
+										>
+											<span>{{ chosenExclusiveContent }}</span>
+											<div>
+												<span *ngIf="!showExclusiveContent">&#8964; </span>
+												<span *ngIf="showExclusiveContent">&#8963; </span>
+											</div>
+										</div>
+										<div *ngIf="showExclusiveContent">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of exclusiveContents"
+												(click)="setExclusiveContent(item)"
+											>
+												{{ item }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="
+												showPrivateDiscussionPlatforms =
+													!showPrivateDiscussionPlatforms
+											"
+										>
+											<span>{{ chosenPrivateDiscussionPlatforms }}</span>
+											<div>
+												<span *ngIf="!showPrivateDiscussionPlatforms"
+													>&#8964;
+												</span>
+												<span *ngIf="showPrivateDiscussionPlatforms"
+													>&#8963;
+												</span>
+											</div>
+										</div>
+										<div *ngIf="showPrivateDiscussionPlatforms">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of privateDiscussionPlatforms"
+												(click)="setPrivateDiscussionPlatforms(item)"
+											>
+												{{ item }}
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<div
+											class="custom-dropdown"
+											(click)="showMedium = !showMedium"
+										>
+											<span>{{ chosenMedium }}</span>
+											<div>
+												<span *ngIf="!showMedium">&#8964; </span>
+												<span *ngIf="showMedium">&#8963; </span>
+											</div>
+										</div>
+
+										<div *ngIf="showMedium">
+											<div
+												class="custom-dropdown-items"
+												*ngFor="let item of medium"
+												(click)="setMedium(item)"
+											>
+												{{ item }}
+											</div>
+										</div>
+									</div>
+
+									<div class="checkbox-nabii-container">
+										<input
+											type="checkbox"
+											class="checkbox-nabii"
+											(click)="handleCheckbox($event)"
+											required
+										/>
+										<a
+											href="https://firebasestorage.googleapis.com/v0/b/iif-ace.appspot.com/o/documents%2FNEW%20NABII%20membership%20agreement.pdf?alt=media&token=5e8bfb1e-029c-491e-b7ed-4793d33f6f38&_gl=1*1h381z2*_ga*MTgxMjc3MTM4NS4xNjkxNTExNTg2*_ga_CW55HF8NVT*MTY5ODAwODk2MS41OC4xLjE2OTgwMDkwMTIuOS4wLjA."
+											target="_blank"
+											>NABII Membership Agreement</a
+										>
+									</div>
+
+									<div class="col-md-12 mb-5">
+										<p>{{ msgg }}</p>
+									</div>
+									<div class="col-md-12" style="text-align: right">
+										<span
+											class="slideBtn clickable"
+											(click)="onCreate()"
+											style="position: relative"
+										>
+											<span
+												*ngIf="isSubmitting"
+												style="
+													position: absolute;
+													top: 50%;
+													left: 50%;
+													transform: translate(-50%, -50%);
+													font-weight: 900;
+												"
+											>
+												Sending <i class="fa fa-spinner fa-pulse"></i>
+											</span>
+											<span
+												*ngIf="!isSubmitting"
+												style="
+													position: absolute;
+													top: 50%;
+													left: 50%;
+													transform: translate(-50%, -50%);
+													color: white;
+													font-weight: 900;
+												"
+											>
+												Submit
+											</span>
+										</span>
+									</div>
+								</div>
+
+								<div class="mt-4 mb-4">
+									<div
+										class="alert"
+										*ngIf="showAlert"
+										[ngClass]="{
+											'alert-success': isSuccess,
+											'alert-error': !isSuccess
+										}"
+									>
+										<h4 class="alert-title">{{ msgTitle }}</h4>
+										<p class="alert-content">{{ msgg }}</p>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

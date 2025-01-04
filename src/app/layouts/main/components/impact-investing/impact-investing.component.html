@@ -1,0 +1,46 @@
+<section
+  class="breadcrumb"
+  [ngStyle]="{
+    position: 'relative',
+    width: '100%',
+    display: 'flex',
+    transition: '0.5s',
+    'margin-bottom': '0px',
+    'animation-name': 'FadeIn',
+    'animation-duration': '3s',
+    'transition-timing-function': 'linear',
+    'align-items': 'center',
+    background: 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+    'background-size': 'cover',
+    'background-position': 'center'
+  }">
+  <div class="content">
+    <div class="sect">
+      <h3>{{ title }}</h3>
+      <ul class="breadcrumb">
+        <li><a routerLink="/">Home</a></li>
+        <li>{{ title }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="welcome no-padding" style="margin: 0px">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="imgBx" style="height: 100%">
+        <img [src]="aboutUs.imageUrl" alt="" />
+      </div>
+    </div>
+    <div class="col-md-6 p-4">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">What Is</h3>
+        <h3 class="page-title">Impact Investing?</h3>
+        <div class="inner-box pr-100">
+          <div class="desc" [innerHTML]="aboutUs.summary"></div>
+          <div class="desc" [innerHTML]="aboutUs.content"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

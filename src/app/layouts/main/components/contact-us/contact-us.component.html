@@ -1,0 +1,180 @@
+<section
+  class="breadcrumb"
+  [ngStyle]="{
+    position: 'relative',
+    width: '100%',
+    display: 'flex',
+    transition: '0.5s',
+    'animation-name': 'FadeIn',
+    'animation-duration': '3s',
+    'transition-timing-function': 'linear',
+    'align-items': 'center',
+    background: 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+    'background-size': 'cover',
+    'background-position': 'center'
+  }">
+  <div class="content">
+    <div class="sect">
+      <h3>{{ title }}</h3>
+      <ul class="breadcrumb">
+        <li><a routerLink="/">Home</a></li>
+        <li>{{ title }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="containerc">
+    <div class="row" style="margin: 30px 0px">
+      <div class="col-xl-8 col-lg-8 col-md-8 lite-grey-bg">
+        <div class="pa-20">
+          <span class="sub-title primary-color">{{ intro }}</span>
+          <h3 class="secondary-color">{{ heading }}</h3>
+          <span>{{ msg }}</span>
+
+          <div class="rs-contact inner">
+            <div class="contact-form-part">
+              <div id="form-messages"></div>
+              <form id="contact-form" [formGroup]="form">
+                <div class="row">
+                  <div class="col-md-6 col-sm-12">
+                    <input
+                      type="text"
+                      name="first_name"
+                      #first_name
+                      formControlName="first_name"
+                      placeholder="Your First/Given Name *"
+                      required="" />
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <input
+                      type="text"
+                      name="last_name"
+                      #last_name
+                      formControlName="last_name"
+                      placeholder="Your Last Name *"
+                      required="" />
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <input
+                      type="email"
+                      name="email"
+                      #email
+                      formControlName="email"
+                      placeholder="Email Address *"
+                      required="" />
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <input
+                      type="text"
+                      name="phone_number"
+                      #phone_number
+                      formControlName="phone_number"
+                      placeholder="Phone Number *"
+                      required="" />
+                  </div>
+                  <div class="col-md-12">
+                    <input
+                      type="text"
+                      name="subject"
+                      #subject
+                      formControlName="subject"
+                      placeholder="Subject *"
+                      required="" />
+                  </div>
+                  <div class="col-md-12">
+                    <textarea
+                      name="content"
+                      #content
+                      formControlName="content"
+                      placeholder="Write Your Message Here *"
+                      required=""></textarea>
+                  </div>
+                  <div class="col-md-12" style="text-align: right">
+                    <span class="slideBtn clickable" (click)="onCreate()">
+                      <span *ngIf="isSubmitting">
+                        <i class="fa fa-spinner fa-pulse"></i> Sending
+                      </span>
+                      <span *ngIf="!isSubmitting" style="color: white">
+                        Send Message
+                      </span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-2 mb-2">
+                  <div
+                    class="alert"
+                    *ngIf="showAlert"
+                    [ngClass]="{
+                      'alert-success': isSuccess,
+                      'alert-error': !isSuccess
+                    }">
+                    <h4 class="alert-title">{{ msgTitle }}</h4>
+                    <p class="alert-content">{{ msgg }}</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-4">
+        <div class="card lite-grey-bg" style="border: none !important">
+          <img [src]="logo" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-md-1 col-xs-3">
+                <i class="fa fa-envelope primary-color"></i>
+              </div>
+              <div class="col-md-11 col-xs-9">
+                <span style="font-size: 14px">
+                  Email Us <br />
+                  <a [href]="'mailto:' + emailAddress" class="primary-color">{{
+                    emailAddress
+                  }}</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-1 col-xs-3">
+                <i class="fa fa-phone primary-color"></i>
+              </div>
+              <div class="col-md-11 col-xs-9">
+                <span style="font-size: 14px">
+                  Call Us <br />
+                  <a [href]="'tel:' + phoneNumber" class="primary-color">{{
+                    phoneNumber
+                  }}</a>
+                </span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-1 col-xs-3">
+                <i class="fa fa-home primary-color"></i>
+              </div>
+              <div class="col-md-11 col-xs-9">
+                <span style="font-size: 14px" [innerHtml]="address"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="rs-contact" class="rs-contact inner">
+  <div class="g-map mt-100 md-mt-80">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7581435531615!2d3.4185860153508303!3d6.425112195351404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf5332286bb69%3A0x973e8e2253b785f!2s7%20Ibiyinka%20Olorunbe%2C%20Victoria%20Island%20101241%2C%20Lagos!5e0!3m2!1sen!2sng!4v1654186021060!5m2!1sen!2sng"
+      width="100%"
+      height="550"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"></iframe>
+  </div>
+</div>

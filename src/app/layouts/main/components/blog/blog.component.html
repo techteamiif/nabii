@@ -1,0 +1,58 @@
+<section
+	class="breadcrumb"
+	[ngStyle]="{
+		position: 'relative',
+		width: '100%',
+		display: 'flex',
+		transition: '0.5s',
+		'margin-bottom': '0px',
+		'animation-name': 'FadeIn',
+		'animation-duration': '3s',
+		'transition-timing-function': 'linear',
+		'align-items': 'center',
+		background: 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+		'background-size': 'cover',
+		'background-position': 'center'
+	}"
+>
+	<div class="content">
+		<div class="sect">
+			<h3>{{ title }}</h3>
+			<ul class="breadcrumb">
+				<li><a routerLink="/">Home</a></li>
+				<li>{{ sTitle }}</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="blog">
+	<div class="container">
+		<div class="blog-container" *ngIf="blog">
+			<div class="col-md-12" *ngIf="blog">
+				<div class="blog-top">
+					<div class="blog-top-img">
+						<img class="img-fluid" [src]="blog.imageUrl" alt="Thumb" />
+					</div>
+
+					<div class="blog-top-content">
+						<h2 class="	">{{ blog.title }}</h2>
+						<span class="bold" [innerHTML]="blog.brief"></span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div>
+							<div [innerHtml]="blog.content"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<a class="app-btn downloadlink-block" [href]="blog.fileUrl" target="_blank"
+			>Download Report</a
+		>
+	</div>
+</section>

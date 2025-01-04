@@ -1,0 +1,61 @@
+<section class="breadcrumb" [ngStyle]="{
+  position: 'relative',
+  width: '100%',
+  display: 'flex',
+  transition: '0.5s',
+  'margin-bottom': '0px',
+  'animation-name': 'FadeIn',
+  'animation-duration': '3s',
+  'transition-timing-function': 'linear',
+  'align-items': 'center',
+  'background': 'linear-gradient(#000000b0 40%, #00000080 100%),' + bgImage,
+  'background-size': 'cover',
+  'background-position': 'center'
+}">
+  <div class="content">
+    <div class="sect">
+      <h3>{{ title }}</h3>
+      <ul class="breadcrumb">
+        <li><a routerLink="/">Home</a></li>
+        <li>{{ title }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="welcome no-padding" style="margin: 0px;">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="imgBx" style="height: 100%;">
+        <img
+          src="https://mly7rtrxtytf.i.optimole.com/oOvf39Y-ys4pkXER/w:2000/h:1334/q:mauto/https://nigerianabii.org/wp-content/uploads/2021/05/billy-chester-pdC8onszs6o-unsplash.jpg"
+          alt="" />
+      </div>
+    </div>
+    <div class="col-md-6 p-4 ">
+      <div class="content mb-1">
+        <h3 class="page-subtitle">Strategic</h3>
+        <h3 class="page-title">Pillar Overview</h3>
+        <div class="inner-box pr-100">
+          <p class="desc">
+            'The four strategic pillars reflect the recommendations made by the NAB Taskforce to address the main
+            challenges in the impact investing industry highlighted in the IIF 2019 landscape study and echoed by
+            members of the community during the robust consultative process in June and September 2020.
+          </p>
+          <p class="desc">
+            These strategic pillars are also based on the GSG framework which identifies the pillars of the global
+            impact investment ecosystem and captures who is active in different parts of the field and activity that is
+            occurring or needed for impact investing to grow.'
+          </p>
+        </div>
+
+        <div class="card clickable mb-3" *ngFor="let item of pillars">
+          <div class="card-body" [routerLink]="'/strategic-pillars/' + item.id + '-reqSlug-' + item.url">
+            {{ item.title }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

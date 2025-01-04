@@ -1,0 +1,54 @@
+h3 {
+	font-size: 17px !important;
+	margin: 10px 0px;
+}
+
+.mt-30 {
+	margin-top: 30px;
+}
+
+.audio-container {
+	margin: 3rem 0;
+
+	@media only screen and (min-width: 768px) {
+		audio {
+			display: block;
+			margin-top: 4rem;
+			width: 100%;
+			box-shadow: 1px 1px 1px 1px rgb(204, 204, 204);
+			border-radius: 45px;
+		}
+	}
+}
+
+.audio-image {
+	width: 100%;
+
+	@media only screen and (min-width: 768px) {
+		width: 35%;
+		height: 400px;
+		display: block;
+	}
+}
+
+.audio-content {
+	@media only screen and (min-width: 768px) {
+		width: 50%;
+		text-align: justify;
+	}
+}
+
+.audio-content-header {
+	margin: 14px 0;
+
+	@media only screen and (min-width: 768px) {
+		margin: 0;
+	}
+}
+
+.audio-innerContainer {
+	@media only screen and (min-width: 768px) {
+		display: flex;
+		gap: 2rem;
+	}
+}
