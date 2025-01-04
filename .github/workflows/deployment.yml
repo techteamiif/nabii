@@ -2,20 +2,35 @@ on:
   push:
     branches:
       - main
-name: 🚀 Deploy website on push
+name: 🚀 Build and Deploy Angular Website
 
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: 🎉 Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
+      # Checkout the repository
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
 
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
+      # Set up Node.js
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Ensure compatibility with Angular and your project
+
+      # Install dependencies
+      - name: 📦 Install npm packages
+        run: npm ci
+
+      # Build the Angular project
+      - name: 🏗️ Build Angular project
+        run: npm run build -- --configuration production
+
+      # Deploy the built files to the FTP server
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
