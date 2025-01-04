@@ -19,9 +19,10 @@ jobs:
         with:
           node-version: 18 # Ensure compatibility with Angular and your project
 
-      # Install dependencies
+      # Install dependencies with legacy-peer-deps to resolve conflicts
       - name: 📦 Install npm packages
-        run: npm install @angular/fire@7 
+        run: npm install --legacy-peer-deps
+
 
 
       # Build the Angular project
@@ -36,3 +37,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
+          local-dir: ./dist/
+
