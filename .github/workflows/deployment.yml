@@ -36,8 +36,8 @@ jobs:
           
       - name: Update rxfire and firebase to compatible versions
         run: |
-          npm install rxfire@5.0.0 --legacy-peer-deps  # Downgrading rxfire to a version compatible with Firebase 7.x
-          npm install firebase@^9.0.0 --legacy-peer-deps  # If you prefer to use the latest Firebase version, use Firebase 9.x
+          npm install rxfire@4.0.0 --legacy-peer-deps  # Downgrading rxfire to a version compatible with Firebase 7.x
+          npm install firebase@^7.0.0 --legacy-peer-deps  # If you prefer to use the latest Firebase version, use Firebase 7.x
 
       # Downgrade ng-select2-component to a version compatible with Angular 14.x
       - name: Install compatible ng-select2-component version
