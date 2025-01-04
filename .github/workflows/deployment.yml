@@ -19,14 +19,14 @@ jobs:
         with:
           node-version: 16 # Ensure compatibility with Angular and your project
 
-     # Install dependencies with legacy-peer-deps to resolve conflicts
-      - name: 📦 Install npm packages
+        
+    # Install dependencies with legacy-peer-deps to resolve conflicts
+      - name: 📦 Install npm packages with legacy-peer-deps
         run: npm install --legacy-peer-deps
 
       # Install a specific version of @angular/fire
       - name: 📦 Install @angular/fire
-        run: npm install @angular/fire@7 --save
-
+        run: npm install @angular/fire@7 --legacy-peer-deps
 
 
       # Build the Angular project
