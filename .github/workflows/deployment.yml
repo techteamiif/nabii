@@ -21,7 +21,8 @@ jobs:
 
       # Install dependencies
       - name: 📦 Install npm packages
-        run: npm ci
+        run: npm install @angular/fire@7 
+
 
       # Build the Angular project
       - name: 🏗️ Build Angular project
