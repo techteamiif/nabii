@@ -17,7 +17,7 @@ jobs:
       - name: 🔧 Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Ensure compatibility with Angular and your project
+          node-version: 16 # Ensure compatibility with Angular and your project
 
      # Install dependencies with legacy-peer-deps to resolve conflicts
       - name: 📦 Install npm packages
