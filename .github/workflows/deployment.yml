@@ -1,27 +1,23 @@
-name: 🚀 Build and Deploy Angular Website
-
-on:
+on: 
   push:
     branches:
       - main
+name: 🚀 Build and Deploy Angular Website
 
 jobs:
   web-deploy:
     name: 🎉 Build and Deploy
     runs-on: ubuntu-latest
-
     steps:
       # Checkout the repository
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      # Setup Node.js 16.x
       - name: Setup Node.js 16.x
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
 
-      # Cache Node.js modules
       - name: Cache Node.js modules
         uses: actions/cache@v2
         with:
@@ -29,22 +25,24 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
-
-      # Install dependencies, including legacy peer dependencies
+  
       - name: Install Dependencies
         run: |
           npm install --legacy-peer-deps
-
-      # Install Angular Fire 7.x and Firebase 7
+  
       - name: Install Angular Fire 7.x
         run: |
           npm install @angular/fire@7.6.1 firebase@7 --legacy-peer-deps
-
-      # Update rxfire and firebase to compatible versions
+          
       - name: Update rxfire and firebase to compatible versions
         run: |
-          npm install rxfire@^5.0.0  # Downgrading rxfire to a version compatible with Firebase 7.x
-          npm install firebase@^9.0.0  # Update Firebase to version 9.x, if desired for latest features
+          npm install rxfire@5.0.0 --legacy-peer-deps  # Downgrading rxfire to a version compatible with Firebase 7.x
+          npm install firebase@^9.0.0 --legacy-peer-deps  # If you prefer to use the latest Firebase version, use Firebase 9.x
+
+      # Downgrade ng-select2-component to a version compatible with Angular 14.x
+      - name: Install compatible ng-select2-component version
+        run: |
+          npm install ng-select2-component@^9.0.0 --legacy-peer-deps
 
       # Build the Angular project
       - name: 🏗️ Build Angular project
