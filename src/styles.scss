@@ -5,9 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
 
 @function rem($value) {
-	$remValue: ($value / 16) + rem;
+	$remValue: calc($value / 16) + rem;
 	@return $remValue;
 }
+
 
 :root {
 	--font: "Montserrat", sans-serif;
